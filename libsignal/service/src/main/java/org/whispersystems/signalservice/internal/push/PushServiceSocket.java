@@ -1057,6 +1057,7 @@ public class PushServiceSocket {
                                                .addFormDataPart("acl", acl)
                                                .addFormDataPart("key", key)
                                                .addFormDataPart("policy", policy)
+                                               .addFormDataPart("success_action_status", "200")
                                                .addFormDataPart("Content-Type", contentType)
                                                .addFormDataPart("x-amz-algorithm", algorithm)
                                                .addFormDataPart("x-amz-credential", credential)
