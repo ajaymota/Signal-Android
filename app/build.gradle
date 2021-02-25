@@ -191,16 +191,17 @@ android {
         staging {
             initWith debug
 
-            buildConfigField "String", "SIGNAL_URL", "\"https://textsecure-service-staging.whispersystems.org\""
-            buildConfigField "String", "STORAGE_URL", "\"https://storage-staging.signal.org\""
-            buildConfigField "String", "SIGNAL_CDN_URL", "\"https://cdn-staging.signal.org\""
-            buildConfigField "String", "SIGNAL_CDN2_URL", "\"https://cdn2-staging.signal.org\""
-            buildConfigField "String", "SIGNAL_CONTACT_DISCOVERY_URL", "\"https://api-staging.directory.signal.org\""
-            buildConfigField "String", "SIGNAL_KEY_BACKUP_URL", "\"https://api-staging.backup.signal.org\""
+            buildConfigField "String", "SIGNAL_URL", "\"https://privately.org\""
+            buildConfigField "String", "STORAGE_URL", "\"https://privately.org\""
+            buildConfigField "String", "SIGNAL_CDN_URL", "\"https://privately.org/minio-bucket\""
+            buildConfigField "String", "SIGNAL_CDN2_URL", "\"https://privately.org/minio-bucket\""
+            buildConfigField "String", "SIGNAL_CONTACT_DISCOVERY_URL", "\"https://privately.org\""
+            buildConfigField "String", "SIGNAL_KEY_BACKUP_URL", "\"https://privately.org\""
+
             buildConfigField "String", "CDS_MRENCLAVE", "\"b657cad56d518827b0938949bb1e5727a9a4db358dd6a88e55e710a89ffa50bd\""
             buildConfigField "String", "KBS_ENCLAVE_NAME", "\"823a3b2c037ff0cbe305cc48928cfcc97c9ed4a8ca6d49af6f7d6981fb60a4e9\""
-            buildConfigField "String", "UNIDENTIFIED_SENDER_TRUST_ROOT", "\"BbqY1DzohE4NUZoVF+L18oUPrK3kILllLEJh2UnPSsEx\""
-            buildConfigField "String", "ZKGROUP_SERVER_PUBLIC_PARAMS", "\"ABSY21VckQcbSXVNCGRYJcfWHiAMZmpTtTELcDmxgdFbtp/bWsSxZdMKzfCp8rvIs8ocCU3B37fT3r4Mi5qAemeGeR2X+/YmOGR5ofui7tD5mDQfstAI9i+4WpMtIe8KC3wU5w3Inq3uNWVmoGtpKndsNfwJrCg0Hd9zmObhypUnSkfYn2ooMOOnBpfdanRtrvetZUayDMSC5iSRcXKpdls=\""
+            buildConfigField "String", "UNIDENTIFIED_SENDER_TRUST_ROOT", "\"BXUQ1pAnk4vrO1UKJ0qiBVuV5/COPC5Em3zkTERfxl5O\""
+            buildConfigField "String", "ZKGROUP_SERVER_PUBLIC_PARAMS", "\"AKSUq5yFbR5jHj+JCwmXwdYqvmon2fFdxP5nvDKdJ41AHA1znKedu4iVwHoDqnuwWssBYNof9ZAXS53QpnKjCxdaW4N1rma0Rbf8MZPYSXUh5gv2a3F+5sc6Zu/DDXYrQnrSlXrvn0B8nvHijGc4luDpK3zNCyRvNexoUN7O85Q7Ds/DoZFv12hZIYmVe8UCsEHcvUWYnPKx7UaSYRyXuUo=\""
         }
         flipper {
             initWith debug
