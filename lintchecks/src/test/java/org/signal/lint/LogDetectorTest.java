@@ -35,10 +35,10 @@ public final class LogDetectorTest {
                 "    Log.d(\"TAG\", \"msg\");\n" +
                 "    ~~~~~~~~~~~~~~~~~~~\n" +
                 "1 errors, 0 warnings")
-      .expectFixDiffs("Fix for src/foo/Example.java line 5: Replace with org.thoughtcrime.securesms.logging.Log.d(\"TAG\", \"msg\"):\n" +
+      .expectFixDiffs("Fix for src/foo/Example.java line 5: Replace with org.privately.chat.logging.Log.d(\"TAG\", \"msg\"):\n" +
                         "@@ -5 +5\n" +
                         "-     Log.d(\"TAG\", \"msg\");\n" +
-                        "+     org.thoughtcrime.securesms.logging.Log.d(\"TAG\", \"msg\");");
+                        "+     org.privately.chat.logging.Log.d(\"TAG\", \"msg\");");
   }
 
   @Test
@@ -59,10 +59,10 @@ public final class LogDetectorTest {
                 "    Log.w(\"TAG\", \"msg\", new Exception());\n" +
                 "    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "1 errors, 0 warnings")
-      .expectFixDiffs("Fix for src/foo/Example.java line 5: Replace with org.thoughtcrime.securesms.logging.Log.w(\"TAG\", \"msg\", new Exception()):\n" +
+      .expectFixDiffs("Fix for src/foo/Example.java line 5: Replace with org.privately.chat.logging.Log.w(\"TAG\", \"msg\", new Exception()):\n" +
                         "@@ -5 +5\n" +
                         "-     Log.w(\"TAG\", \"msg\", new Exception());\n" +
-                        "+     org.thoughtcrime.securesms.logging.Log.w(\"TAG\", \"msg\", new Exception());");
+                        "+     org.privately.chat.logging.Log.w(\"TAG\", \"msg\", new Exception());");
   }
 
   @Test
@@ -83,10 +83,10 @@ public final class LogDetectorTest {
                 "    Log.d(\"TAG\", \"msg\");\n" +
                 "    ~~~~~~~~~~~~~~~~~~~\n" +
                 "1 errors, 0 warnings")
-      .expectFixDiffs("Fix for src/foo/Example.java line 5: Replace with org.thoughtcrime.securesms.logging.Log.d(\"TAG\", \"msg\"):\n" +
+      .expectFixDiffs("Fix for src/foo/Example.java line 5: Replace with org.privately.chat.logging.Log.d(\"TAG\", \"msg\"):\n" +
                         "@@ -5 +5\n" +
                         "-     Log.d(\"TAG\", \"msg\");\n" +
-                        "+     org.thoughtcrime.securesms.logging.Log.d(\"TAG\", \"msg\");");
+                        "+     org.privately.chat.logging.Log.d(\"TAG\", \"msg\");");
   }
 
   @Test
@@ -107,10 +107,10 @@ public final class LogDetectorTest {
                 "    Log.w(\"TAG\", \"msg\", new Exception());\n" +
                 "    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                 "1 errors, 0 warnings")
-      .expectFixDiffs("Fix for src/foo/Example.java line 5: Replace with org.thoughtcrime.securesms.logging.Log.w(\"TAG\", \"msg\", new Exception()):\n" +
+      .expectFixDiffs("Fix for src/foo/Example.java line 5: Replace with org.privately.chat.logging.Log.w(\"TAG\", \"msg\", new Exception()):\n" +
                         "@@ -5 +5\n" +
                         "-     Log.w(\"TAG\", \"msg\", new Exception());\n" +
-                        "+     org.thoughtcrime.securesms.logging.Log.w(\"TAG\", \"msg\", new Exception());");
+                        "+     org.privately.chat.logging.Log.w(\"TAG\", \"msg\", new Exception());");
   }
 
   @Test
@@ -118,7 +118,7 @@ public final class LogDetectorTest {
     lint()
       .files(appLogStub,
         java("package foo;\n" +
-               "import org.thoughtcrime.securesms.logging.Log;\n" +
+               "import org.privately.chat.logging.Log;\n" +
                "public class Example {\n" +
                "  private static final String TAG = Log.tag(Example.class);\n" +
                "  public void log() {\n" +
@@ -136,7 +136,7 @@ public final class LogDetectorTest {
     lint()
       .files(appLogStub,
         java("package foo;\n" +
-               "import org.thoughtcrime.securesms.logging.Log;\n" +
+               "import org.privately.chat.logging.Log;\n" +
                "public class Example {\n" +
                "  public void log() {\n" +
                "    Log.d(\"TAG\", \"msg\");\n" +

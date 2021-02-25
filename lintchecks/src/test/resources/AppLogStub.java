@@ -1,4 +1,4 @@
-package org.thoughtcrime.securesms.logging;
+package org.privately.chat.logging;
 
 public class Log {
 

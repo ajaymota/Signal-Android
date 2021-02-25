@@ -108,8 +108,10 @@ android {
         targetSdkVersion 28
         multiDexEnabled true
 
+        applicationId "org.privately.chat"
+
         vectorDrawables.useSupportLibrary = true
-        project.ext.set("archivesBaseName", "Signal");
+        project.ext.set("archivesBaseName", "Privately");
 
         buildConfigField "long", "BUILD_TIMESTAMP", getLastCommitTimestamp() + "L"
         buildConfigField "String", "SIGNAL_URL", "\"https://privately.org\""
