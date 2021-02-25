@@ -157,7 +157,8 @@ public abstract class PassphraseRequiredActivity extends BaseActivity implements
     } else if (userMustSetProfileName()) {
       return STATE_CREATE_PROFILE_NAME;
     } else if (userMustCreateSignalPin()) {
-      return STATE_CREATE_SIGNAL_PIN;
+//      return STATE_CREATE_SIGNAL_PIN;
+      return STATE_NORMAL;
     } else {
       return STATE_NORMAL;
     }
