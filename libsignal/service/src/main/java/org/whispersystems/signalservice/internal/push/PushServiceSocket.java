@@ -148,7 +148,7 @@ public class PushServiceSocket {
   private static final String KBS_AUTH_PATH             = "/v1/backup/auth";
 
   private static final String ATTACHMENT_DOWNLOAD_PATH  = "attachments/%d";
-  private static final String ATTACHMENT_UPLOAD_PATH    = "attachments/";
+  private static final String ATTACHMENT_UPLOAD_PATH    = "";
 
   private static final String STICKER_MANIFEST_PATH     = "stickers/%s/manifest.proto";
   private static final String STICKER_PATH              = "stickers/%s/full/%d";
