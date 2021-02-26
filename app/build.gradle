@@ -108,8 +108,6 @@ android {
         targetSdkVersion 28
         multiDexEnabled true
 
-        applicationId "org.privately.chat"
-
         vectorDrawables.useSupportLibrary = true
         project.ext.set("archivesBaseName", "Privately");
 
