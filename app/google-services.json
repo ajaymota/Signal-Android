@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "468352038131",
+    "firebase_url": "https://duut-8b3dd-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "duut-8b3dd",
     "storage_bucket": "duut-8b3dd.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "468352038131-td7ml8fg4olthgjgcu3qnco2qu3d29q0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.privately.chat",
+            "certificate_hash": "f79239d405b7e0e9b414c8d00b943a580805cb39"
+          }
+        },
         {
           "client_id": "468352038131-qa094ue0al7f8p80lk1hp7bc7d3qlbl5.apps.googleusercontent.com",
           "client_type": 3

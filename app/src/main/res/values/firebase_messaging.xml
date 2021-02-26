@@ -2,8 +2,8 @@
 <resources>
     <string name="google_app_id" translatable="false">1:468352038131:android:43e142b852f94d6f17b386</string>
     <string name="gcm_defaultSenderId" translatable="false">468352038131</string>
-    <string name="default_web_client_id" translatable="false">468352038131-qa094ue0al7f8p80lk1hp7bc7d3qlbl5.apps.googleusercontent.com</string>
-    <string name="firebase_database_url" translatable="false">https://duut-8b3dd.appspot.com</string>
+    <string name="default_web_client_id" translatable="false">468352038131-td7ml8fg4olthgjgcu3qnco2qu3d29q0.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://duut-8b3dd-default-rtdb.europe-west1.firebasedatabase.app</string>
     <string name="google_api_key" translatable="false">AIzaSyAqX-NeN0_6zOU7REnEAKkl8yDGwaHIPWQ</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAqX-NeN0_6zOU7REnEAKkl8yDGwaHIPWQ</string>
     <string name="project_id" translatable="false">duut-8b3dd</string>
