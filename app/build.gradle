@@ -125,8 +125,8 @@ android {
         buildConfigField "String", "CDS_MRENCLAVE", "\"cd6cfc342937b23b1bdd3bbf9721aa5615ac9ff50a75c5527d441cd3276826c9\""
         buildConfigField "String", "KBS_ENCLAVE_NAME", "\"fe7c1bfae98f9b073d220366ea31163ee82f6d04bead774f71ca8e5c40847bfe\""
         buildConfigField "String", "KBS_MRENCLAVE", "\"a3baab19ef6ce6f34ab9ebb25ba722725ae44a8872dc0ff08ad6d83a9489de87\""
-        buildConfigField "String", "UNIDENTIFIED_SENDER_TRUST_ROOT", "\"BXUQ1pAnk4vrO1UKJ0qiBVuV5/COPC5Em3zkTERfxl5O\""
-        buildConfigField "String", "ZKGROUP_SERVER_PUBLIC_PARAMS", "\"AKSUq5yFbR5jHj+JCwmXwdYqvmon2fFdxP5nvDKdJ41AHA1znKedu4iVwHoDqnuwWssBYNof9ZAXS53QpnKjCxdaW4N1rma0Rbf8MZPYSXUh5gv2a3F+5sc6Zu/DDXYrQnrSlXrvn0B8nvHijGc4luDpK3zNCyRvNexoUN7O85Q7Ds/DoZFv12hZIYmVe8UCsEHcvUWYnPKx7UaSYRyXuUo=\""
+        buildConfigField "String", "UNIDENTIFIED_SENDER_TRUST_ROOT", "\"BZCzWGQiAUKLpR9SgYpAw0YvtyQsM96IpXZQFtFGNHdH\""
+        buildConfigField "String", "ZKGROUP_SERVER_PUBLIC_PARAMS", "\"ALzV5I7Do43YHaCjKKWPXZD57/rJxptnccSPen3qde0IJGbqobr89qbDfGWxmu3KT0qEFlfdhkl6U8JvkPXgFzSI9mqFpY59v+Bu0m+BSG6V3GKKEk2SsB3k415m2e+yTfzqSY6qXYonlwo4tl5rbMEqj2gwd6XMS+/LNVLPzbAvqLksLMzwCrYgnpTZutjvpOTjlk1F92bFxtVKQ4TlA0s=\""
         buildConfigField "String[]", "LANGUAGES", "new String[]{\"" + autoResConfig().collect { s -> s.replace('-r', '_') }.join('", "') + '"}'
         buildConfigField "int", "CANONICAL_VERSION_CODE", "$canonicalVersionCode"
 
@@ -200,8 +200,8 @@ android {
 
             buildConfigField "String", "CDS_MRENCLAVE", "\"b657cad56d518827b0938949bb1e5727a9a4db358dd6a88e55e710a89ffa50bd\""
             buildConfigField "String", "KBS_ENCLAVE_NAME", "\"823a3b2c037ff0cbe305cc48928cfcc97c9ed4a8ca6d49af6f7d6981fb60a4e9\""
-            buildConfigField "String", "UNIDENTIFIED_SENDER_TRUST_ROOT", "\"BXUQ1pAnk4vrO1UKJ0qiBVuV5/COPC5Em3zkTERfxl5O\""
-            buildConfigField "String", "ZKGROUP_SERVER_PUBLIC_PARAMS", "\"AKSUq5yFbR5jHj+JCwmXwdYqvmon2fFdxP5nvDKdJ41AHA1znKedu4iVwHoDqnuwWssBYNof9ZAXS53QpnKjCxdaW4N1rma0Rbf8MZPYSXUh5gv2a3F+5sc6Zu/DDXYrQnrSlXrvn0B8nvHijGc4luDpK3zNCyRvNexoUN7O85Q7Ds/DoZFv12hZIYmVe8UCsEHcvUWYnPKx7UaSYRyXuUo=\""
+            buildConfigField "String", "UNIDENTIFIED_SENDER_TRUST_ROOT", "\"BZCzWGQiAUKLpR9SgYpAw0YvtyQsM96IpXZQFtFGNHdH\""
+            buildConfigField "String", "ZKGROUP_SERVER_PUBLIC_PARAMS", "\"ALzV5I7Do43YHaCjKKWPXZD57/rJxptnccSPen3qde0IJGbqobr89qbDfGWxmu3KT0qEFlfdhkl6U8JvkPXgFzSI9mqFpY59v+Bu0m+BSG6V3GKKEk2SsB3k415m2e+yTfzqSY6qXYonlwo4tl5rbMEqj2gwd6XMS+/LNVLPzbAvqLksLMzwCrYgnpTZutjvpOTjlk1F92bFxtVKQ4TlA0s=\""
         }
         flipper {
             initWith debug
