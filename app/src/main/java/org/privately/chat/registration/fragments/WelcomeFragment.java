@@ -135,15 +135,15 @@ public final class WelcomeFragment extends BaseRegistrationFragment {
       localNumber = Util.getDeviceNumber(requireContext());
     }
 
-    if (localNumber.isPresent()) {
-      getModel().onNumberDetected(localNumber.get().getCountryCode(), localNumber.get().getNationalNumber());
-    } else {
-      Optional<String> simCountryIso = Util.getSimCountryIso(requireContext());
-
-      if (simCountryIso.isPresent() && !TextUtils.isEmpty(simCountryIso.get())) {
-        getModel().onNumberDetected(PhoneNumberUtil.getInstance().getCountryCodeForRegion(simCountryIso.get()), 0);
-      }
-    }
+//    if (localNumber.isPresent()) {
+//      getModel().onNumberDetected(localNumber.get().getCountryCode(), localNumber.get().getNationalNumber());
+//    } else {
+//      Optional<String> simCountryIso = Util.getSimCountryIso(requireContext());
+//
+//      if (simCountryIso.isPresent() && !TextUtils.isEmpty(simCountryIso.get())) {
+//        getModel().onNumberDetected(PhoneNumberUtil.getInstance().getCountryCodeForRegion(simCountryIso.get()), 0);
+//      }
+//    }
   }
 
   private void onTermsClicked() {

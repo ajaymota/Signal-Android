@@ -30,22 +30,24 @@ public class PhoneNumberFormatter {
   private static final String COUNTRY_CODE_US = "1";
 
   public static boolean isValidNumber(String e164Number, String countryCode) {
-    if (!PhoneNumberUtil.getInstance().isPossibleNumber(e164Number, countryCode)) {
-      Log.w(TAG, "Failed isPossibleNumber()");
-      return false;
-    }
+//    if (!PhoneNumberUtil.getInstance().isPossibleNumber(e164Number, countryCode)) {
+//      Log.w(TAG, "Failed isPossibleNumber()");
+//      return false;
+//    }
+//
+//    if (COUNTRY_CODE_US.equals(countryCode) && !Pattern.matches("^\\+1[0-9]{10}$", e164Number)) {
+//      Log.w(TAG, "Failed US number format check");
+//      return false;
+//    }
+//
+//    if (COUNTRY_CODE_BR.equals(countryCode) && !Pattern.matches("^\\+55[0-9]{2}9?[0-9]{8}$", e164Number)) {
+//      Log.w(TAG, "Failed Brazil number format check");
+//      return false;
+//    }
+//
+//    return e164Number.matches("^\\+[1-9][0-9]{6,14}$");
 
-    if (COUNTRY_CODE_US.equals(countryCode) && !Pattern.matches("^\\+1[0-9]{10}$", e164Number)) {
-      Log.w(TAG, "Failed US number format check");
-      return false;
-    }
-
-    if (COUNTRY_CODE_BR.equals(countryCode) && !Pattern.matches("^\\+55[0-9]{2}9?[0-9]{8}$", e164Number)) {
-      Log.w(TAG, "Failed Brazil number format check");
-      return false;
-    }
-
-    return e164Number.matches("^\\+[1-9][0-9]{6,14}$");
+    return true;
   }
 
   private static String impreciseFormatNumber(String number, String localNumber)

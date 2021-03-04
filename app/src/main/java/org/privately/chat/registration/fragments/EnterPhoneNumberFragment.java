@@ -46,14 +46,14 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
 
   private static final String TAG = Log.tag(EnterPhoneNumberFragment.class);
 
-  private LabeledEditText        countryCode;
+//  private LabeledEditText        countryCode;
   private LabeledEditText        number;
-  private ArrayAdapter<String>   countrySpinnerAdapter;
-  private AsYouTypeFormatter     countryFormatter;
+//  private ArrayAdapter<String>   countrySpinnerAdapter;
+//  private AsYouTypeFormatter     countryFormatter;
   private CircularProgressButton register;
-  private Spinner                countrySpinner;
+//  private Spinner                countrySpinner;
   private View                   cancel;
-  private ScrollView             scrollView;
+//  private ScrollView             scrollView;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,14 +67,14 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
 
     setDebugLogSubmitMultiTapView(view.findViewById(R.id.verify_header));
 
-    countryCode    = view.findViewById(R.id.country_code);
+//    countryCode    = view.findViewById(R.id.country_code);
     number         = view.findViewById(R.id.number);
-    countrySpinner = view.findViewById(R.id.country_spinner);
+//    countrySpinner = view.findViewById(R.id.country_spinner);
     cancel         = view.findViewById(R.id.cancel_button);
-    scrollView     = view.findViewById(R.id.scroll_view);
+//    scrollView     = view.findViewById(R.id.scroll_view);
     register       = view.findViewById(R.id.registerButton);
 
-    initializeSpinner(countrySpinner);
+//    initializeSpinner(countrySpinner);
 
     setUpNumberInput();
 
@@ -88,17 +88,16 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
     }
 
     RegistrationViewModel model  = getModel();
-    NumberViewState       number = model.getNumber();
 
-    initNumber(number);
+//    initNumber(number);
 
-    countryCode.getInput().addTextChangedListener(new CountryCodeChangedListener());
+//    countryCode.getInput().addTextChangedListener(new CountryCodeChangedListener());
 
     if (model.hasCaptchaToken()) {
       handleRegister(requireContext());
     }
 
-    countryCode.getInput().setImeOptions(EditorInfo.IME_ACTION_NEXT);
+//    countryCode.getInput().setImeOptions(EditorInfo.IME_ACTION_NEXT);
   }
 
   private void setUpNumberInput() {
@@ -106,11 +105,11 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
 
     numberInput.addTextChangedListener(new NumberChangedListener());
 
-    number.setOnFocusChangeListener((v, hasFocus) -> {
-      if (hasFocus) {
-        scrollView.postDelayed(() -> scrollView.smoothScrollTo(0, register.getBottom()), 250);
-      }
-    });
+//    number.setOnFocusChangeListener((v, hasFocus) -> {
+//      if (hasFocus) {
+//        scrollView.postDelayed(() -> scrollView.smoothScrollTo(0, register.getBottom()), 250);
+//      }
+//    });
 
     numberInput.setImeOptions(EditorInfo.IME_ACTION_DONE);
     numberInput.setOnEditorActionListener((v, actionId, event) -> {
@@ -124,10 +123,10 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
   }
 
   private void handleRegister(@NonNull Context context) {
-    if (TextUtils.isEmpty(countryCode.getText())) {
-      Toast.makeText(context, getString(R.string.RegistrationActivity_you_must_specify_your_country_code), Toast.LENGTH_LONG).show();
-      return;
-    }
+//    if (TextUtils.isEmpty(countryCode.getText())) {
+//      Toast.makeText(context, getString(R.string.RegistrationActivity_you_must_specify_your_country_code), Toast.LENGTH_LONG).show();
+//      return;
+//    }
 
     if (TextUtils.isEmpty(this.number.getText())) {
       Toast.makeText(context, getString(R.string.RegistrationActivity_you_must_specify_your_phone_number), Toast.LENGTH_LONG).show();
@@ -182,16 +181,16 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
   }
 
   private void disableAllEntries() {
-    countryCode.setEnabled(false);
+//    countryCode.setEnabled(false);
     number.setEnabled(false);
-    countrySpinner.setEnabled(false);
+//    countrySpinner.setEnabled(false);
     cancel.setVisibility(View.GONE);
   }
 
   private void enableAllEntries() {
-    countryCode.setEnabled(true);
+//    countryCode.setEnabled(true);
     number.setEnabled(true);
-    countrySpinner.setEnabled(true);
+//    countrySpinner.setEnabled(true);
     if (isReregister()) {
       cancel.setVisibility(View.VISIBLE);
     }
@@ -265,27 +264,27 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
       });
   }
 
-  private void initializeSpinner(Spinner countrySpinner) {
-    countrySpinnerAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item);
-    countrySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-    setCountryDisplay(getString(R.string.RegistrationActivity_select_your_country));
-
-    countrySpinner.setAdapter(countrySpinnerAdapter);
-    countrySpinner.setOnTouchListener((view, event) -> {
-      if (event.getAction() == MotionEvent.ACTION_UP) {
-        pickCountry(view);
-      }
-      return true;
-    });
-    countrySpinner.setOnKeyListener((view, keyCode, event) -> {
-      if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER && event.getAction() == KeyEvent.ACTION_UP) {
-        pickCountry(view);
-        return true;
-      }
-      return false;
-    });
-  }
+//  private void initializeSpinner(Spinner countrySpinner) {
+//    countrySpinnerAdapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item);
+//    countrySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//    setCountryDisplay(getString(R.string.RegistrationActivity_select_your_country));
+//
+//    countrySpinner.setAdapter(countrySpinnerAdapter);
+//    countrySpinner.setOnTouchListener((view, event) -> {
+//      if (event.getAction() == MotionEvent.ACTION_UP) {
+//        pickCountry(view);
+//      }
+//      return true;
+//    });
+//    countrySpinner.setOnKeyListener((view, keyCode, event) -> {
+//      if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER && event.getAction() == KeyEvent.ACTION_UP) {
+//        pickCountry(view);
+//        return true;
+//      }
+//      return false;
+//    });
+//  }
 
   private void pickCountry(@NonNull View view) {
     Navigation.findNavController(view).navigate(R.id.action_pickCountry);
@@ -293,27 +292,27 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
 
   private void initNumber(@NonNull NumberViewState numberViewState) {
     int    countryCode       = numberViewState.getCountryCode();
-    long   number            = numberViewState.getNationalNumber();
+    String   number            = numberViewState.getNationalNumber();
     String regionDisplayName = numberViewState.getCountryDisplayName();
 
-    this.countryCode.setText(String.valueOf(countryCode));
+//    this.countryCode.setText(String.valueOf(countryCode));
 
     setCountryDisplay(regionDisplayName);
 
     String regionCode = PhoneNumberUtil.getInstance().getRegionCodeForCountryCode(countryCode);
     setCountryFormatter(regionCode);
 
-    if (number != 0) {
-      this.number.setText(String.valueOf(number));
+    if (number != null) {
+      this.number.setText(number);
     }
   }
 
   private void setCountryDisplay(String regionDisplayName) {
-    countrySpinnerAdapter.clear();
+//    countrySpinnerAdapter.clear();
     if (regionDisplayName == null) {
-      countrySpinnerAdapter.add(getString(R.string.RegistrationActivity_select_your_country));
+//      countrySpinnerAdapter.add(getString(R.string.RegistrationActivity_select_your_country));
     } else {
-      countrySpinnerAdapter.add(regionDisplayName);
+//      countrySpinnerAdapter.add(regionDisplayName);
     }
   }
 
@@ -322,7 +321,7 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
     public void afterTextChanged(Editable s) {
       if (TextUtils.isEmpty(s) || !TextUtils.isDigitsOnly(s)) {
         setCountryDisplay(null);
-        countryFormatter = null;
+//        countryFormatter = null;
         return;
       }
 
@@ -357,7 +356,7 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
 
     @Override
     public void afterTextChanged(Editable s) {
-      Long number = reformatText(s);
+      String number = reformatText(s);
 
       if (number == null) return;
 
@@ -378,43 +377,37 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
     }
   }
 
-  private Long reformatText(Editable s) {
-    if (countryFormatter == null) {
-      return null;
-    }
+  private String reformatText(Editable s) {
+//    if (countryFormatter == null) {
+//      return null;
+//    }
 
     if (TextUtils.isEmpty(s)) {
       return null;
     }
 
-    countryFormatter.clear();
+//    countryFormatter.clear();
 
-    String        formattedNumber = null;
+//    String        formattedNumber = null;
     StringBuilder justDigits      = new StringBuilder();
 
     for (int i = 0; i < s.length(); i++) {
       char c = s.charAt(i);
-      if (Character.isDigit(c)) {
-        formattedNumber = countryFormatter.inputDigit(c);
+//        formattedNumber = countryFormatter.inputDigit(c);
         justDigits.append(c);
-      }
-    }
-
-    if (formattedNumber != null && !s.toString().equals(formattedNumber)) {
-      s.replace(0, s.length(), formattedNumber);
     }
 
     if (justDigits.length() == 0) {
       return null;
     }
 
-    return Long.parseLong(justDigits.toString());
+    return justDigits.toString();
   }
 
   private void setCountryFormatter(@Nullable String regionCode) {
     PhoneNumberUtil util = PhoneNumberUtil.getInstance();
 
-    countryFormatter = regionCode != null ? util.getAsYouTypeFormatter(regionCode) : null;
+//    countryFormatter = regionCode != null ? util.getAsYouTypeFormatter(regionCode) : null;
 
     reformatText(number.getText());
   }

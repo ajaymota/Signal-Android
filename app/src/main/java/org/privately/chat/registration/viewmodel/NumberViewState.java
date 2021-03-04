@@ -20,7 +20,7 @@ public final class NumberViewState implements Parcelable {
 
   private final String selectedCountryName;
   private final int    countryCode;
-  private final long   nationalNumber;
+  private final String   nationalNumber;
 
   private NumberViewState(Builder builder) {
     this.selectedCountryName = builder.countryDisplayName;
@@ -38,7 +38,7 @@ public final class NumberViewState implements Parcelable {
     return countryCode;
   }
 
-  public long getNationalNumber() {
+  public String getNationalNumber() {
     return nationalNumber;
   }
 
@@ -80,16 +80,17 @@ public final class NumberViewState implements Parcelable {
   }
 
   public boolean isValid() {
-    return PhoneNumberFormatter.isValidNumber(getE164Number(), Integer.toString(getCountryCode()));
+//    return PhoneNumberFormatter.isValidNumber(getE164Number(), Integer.toString(getCountryCode()));
+    return true;
   }
 
   @Override
   public int hashCode() {
-    int hash = countryCode;
+    int hash = 1;
     hash *= 31;
-    hash += (int) (nationalNumber ^ (nationalNumber >>> 32));
+    hash += (int) (nationalNumber.hashCode() ^ (nationalNumber.hashCode() >>> 32));
     hash *= 31;
-    hash += selectedCountryName != null ? selectedCountryName.hashCode() : 0;
+//    hash += selectedCountryName != null ? selectedCountryName.hashCode() : 0;
     return hash;
   }
 
@@ -106,7 +107,7 @@ public final class NumberViewState implements Parcelable {
   }
 
   public String getE164Number() {
-    return getConfiguredE164Number(countryCode, nationalNumber);
+    return getConfiguredE164Number(nationalNumber);
   }
 
   public String getFullFormattedNumber() {
@@ -122,8 +123,8 @@ public final class NumberViewState implements Parcelable {
     }
   }
 
-  private static String getConfiguredE164Number(int countryCode, long number) {
-    return PhoneNumberFormatter.formatE164(String.valueOf(countryCode), String.valueOf(number));
+  private static String getConfiguredE164Number(String number) {
+    return number;
   }
 
   private static Phonenumber.PhoneNumber getPhoneNumber(@NonNull PhoneNumberUtil util, @NonNull String e164Number)
@@ -135,7 +136,7 @@ public final class NumberViewState implements Parcelable {
   public static class Builder {
     private String countryDisplayName;
     private int    countryCode;
-    private long   nationalNumber;
+    private String   nationalNumber;
 
     public Builder countryCode(int countryCode) {
       this.countryCode = countryCode;
@@ -147,7 +148,7 @@ public final class NumberViewState implements Parcelable {
       return this;
     }
 
-    public Builder nationalNumber(long nationalNumber) {
+    public Builder nationalNumber(String nationalNumber) {
       this.nationalNumber = nationalNumber;
       return this;
     }
@@ -166,7 +167,7 @@ public final class NumberViewState implements Parcelable {
   public void writeToParcel(Parcel parcel, int i) {
     parcel.writeString(selectedCountryName);
     parcel.writeInt(countryCode);
-    parcel.writeLong(nationalNumber);
+    parcel.writeString(nationalNumber);
   }
 
   public static final Creator<NumberViewState> CREATOR = new Creator<NumberViewState>() {
@@ -174,7 +175,7 @@ public final class NumberViewState implements Parcelable {
     public NumberViewState createFromParcel(Parcel in) {
       return new Builder().selectedCountryDisplayName(in.readString())
                           .countryCode(in.readInt())
-                          .nationalNumber(in.readLong())
+                          .nationalNumber(in.readString())
                           .build();
     }
 

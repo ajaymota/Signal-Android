@@ -93,7 +93,7 @@ public final class RegistrationViewModel extends ViewModel {
                             .countryCode(countryCode).build());
   }
 
-  public void setNationalNumber(long number) {
+  public void setNationalNumber(String number) {
     NumberViewState numberViewState = getNumber().toBuilder().nationalNumber(number).build();
     setViewState(numberViewState);
   }
@@ -109,7 +109,7 @@ public final class RegistrationViewModel extends ViewModel {
     textCodeEntered.setValue(code);
   }
 
-  public void onNumberDetected(int countryCode, long nationalNumber) {
+  public void onNumberDetected(int countryCode, String nationalNumber) {
     setViewState(getNumber().toBuilder()
                             .countryCode(countryCode)
                             .nationalNumber(nationalNumber)

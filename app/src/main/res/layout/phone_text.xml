@@ -11,7 +11,7 @@
     android:paddingBottom="16dp"
     android:background="@color/transparent"
     android:singleLine="true"
-    android:inputType="phone"
+    android:inputType="textVisiblePassword"
     android:saveEnabled="false"
     android:hint="@string/RegistrationActivity_phone_number_description"
     tools:text="867-5309" />

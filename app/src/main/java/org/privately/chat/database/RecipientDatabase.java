@@ -78,7 +78,7 @@ public class RecipientDatabase extends Database {
   public  static final String ID                       = "_id";
   private static final String UUID                     = "uuid";
   private static final String USERNAME                 = "username";
-  public  static final String PHONE                    = "phone";
+  public  static final String PHONE                    = "textVisiblePassword";
   public  static final String EMAIL                    = "email";
           static final String GROUP_ID                 = "group_id";
   private static final String GROUP_TYPE               = "group_type";

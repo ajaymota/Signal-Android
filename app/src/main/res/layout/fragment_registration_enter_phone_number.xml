@@ -26,12 +26,12 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/verify_subheader">
 
-            <Spinner
-                android:id="@+id/country_spinner"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:textAlignment="viewStart" />
+<!--            <Spinner-->
+<!--                android:id="@+id/country_spinner"-->
+<!--                android:layout_width="fill_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="16dp"-->
+<!--                android:textAlignment="viewStart" />-->
 
         </FrameLayout>
 
@@ -48,14 +48,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/country_spinner_frame">
 
-            <org.privately.chat.components.LabeledEditText
-                android:id="@+id/country_code"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:layout_weight="1"
-                app:labeledEditText_background="@color/white"
-                app:labeledEditText_textLayout="@layout/country_code_text" />
+<!--            <org.privately.chat.components.LabeledEditText-->
+<!--                android:id="@+id/country_code"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="12dp"-->
+<!--                android:layout_weight="1"-->
+<!--                app:labeledEditText_background="@color/white"-->
+<!--                app:labeledEditText_textLayout="@layout/country_code_text" />-->
 
             <org.privately.chat.components.LabeledEditText
                 android:id="@+id/number"
