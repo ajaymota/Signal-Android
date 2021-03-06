@@ -91,7 +91,7 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
 
     RegistrationViewModel model  = getModel();
 
-    register.setOnClickListener(v -> handleRegister(requireContext(), number, model));
+    register.setOnClickListener(v -> handleRegister(requireContext(), number));
 
     if (isReregister()) {
       cancel.setVisibility(View.VISIBLE);
@@ -105,7 +105,7 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
 //    countryCode.getInput().addTextChangedListener(new CountryCodeChangedListener());
 
     if (model.hasCaptchaToken()) {
-      handleRegister(requireContext(), number, model);
+      handleRegister(requireContext(), number);
     }
 
 //    countryCode.getInput().setImeOptions(EditorInfo.IME_ACTION_NEXT);
@@ -123,7 +123,7 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
     });
   }
 
-  private void handleRegister(@NonNull Context context, VerificationCodeView verificationCodeView, RegistrationViewModel model) {
+  private void handleRegister(@NonNull Context context, VerificationCodeView verificationCodeView) {
 
 //    if (TextUtils.isEmpty(countryCode.getText())) {
 //      Toast.makeText(context, getString(R.string.RegistrationActivity_you_must_specify_your_country_code), Toast.LENGTH_LONG).show();
@@ -138,11 +138,9 @@ public final class EnterPhoneNumberFragment extends BaseRegistrationFragment {
 //    final NumberViewState number     = getModel().getNumber();
     final String          e164number = verificationCodeView.getText();
 
-    Log.i(TAG, "BLAH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-
     Log.i(TAG, e164number);
 
-    model.onNumberEntered(e164number);
+//    model.onNumberEntered(e164number);
 
 //    if (!number.isValid()) {
 //      Dialogs.showAlertDialog(context,
