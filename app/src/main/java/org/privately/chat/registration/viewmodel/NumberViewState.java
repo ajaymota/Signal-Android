@@ -16,8 +16,6 @@ import java.util.Objects;
 
 public final class NumberViewState implements Parcelable {
 
-  public static final NumberViewState INITIAL = new Builder().build();
-
   private final String selectedCountryName;
   private final int    countryCode;
   private final String   nationalNumber;
@@ -26,57 +24,6 @@ public final class NumberViewState implements Parcelable {
     this.selectedCountryName = builder.countryDisplayName;
     this.countryCode         = builder.countryCode;
     this.nationalNumber      = builder.nationalNumber;
-  }
-
-  public Builder toBuilder() {
-    return new Builder().countryCode(countryCode)
-                        .selectedCountryDisplayName(selectedCountryName)
-                        .nationalNumber(nationalNumber);
-  }
-
-  public int getCountryCode() {
-    return countryCode;
-  }
-
-  public String getNationalNumber() {
-    return nationalNumber;
-  }
-
-  public String getCountryDisplayName() {
-    if (selectedCountryName != null) {
-      return selectedCountryName;
-    }
-
-    PhoneNumberUtil util = PhoneNumberUtil.getInstance();
-
-    if (isValid()) {
-      String actualCountry = getActualCountry(util, getE164Number());
-
-      if (actualCountry != null) {
-        return actualCountry;
-      }
-    }
-
-    String regionCode = util.getRegionCodeForCountryCode(countryCode);
-    return PhoneNumberFormatter.getRegionDisplayName(regionCode);
-  }
-
-  /**
-   * Finds actual name of region from a valid number. So for example +1 might map to US or Canada or other territories.
-   */
-  private static @Nullable String getActualCountry(@NonNull PhoneNumberUtil util, @NonNull String e164Number) {
-    try {
-      Phonenumber.PhoneNumber phoneNumber = getPhoneNumber(util, e164Number);
-      String                  regionCode  = util.getRegionCodeForNumber(phoneNumber);
-
-      if (regionCode != null) {
-        return PhoneNumberFormatter.getRegionDisplayName(regionCode);
-      }
-
-    } catch (NumberParseException e) {
-      return null;
-    }
-    return null;
   }
 
   public boolean isValid() {
@@ -88,7 +35,7 @@ public final class NumberViewState implements Parcelable {
   public int hashCode() {
     int hash = 1;
     hash *= 31;
-    hash += (int) (nationalNumber.hashCode() ^ (nationalNumber.hashCode() >>> 32));
+    hash += (Integer.parseInt(nationalNumber) ^ (Integer.parseInt(nationalNumber) >>> 32));
     hash *= 31;
 //    hash += selectedCountryName != null ? selectedCountryName.hashCode() : 0;
     return hash;
@@ -104,33 +51,6 @@ public final class NumberViewState implements Parcelable {
     return other.countryCode == countryCode &&
            other.nationalNumber == nationalNumber &&
            Objects.equals(other.selectedCountryName, selectedCountryName);
-  }
-
-  public String getE164Number() {
-    return getConfiguredE164Number(nationalNumber);
-  }
-
-  public String getFullFormattedNumber() {
-    return formatNumber(PhoneNumberUtil.getInstance(), getE164Number());
-  }
-
-  private static String formatNumber(@NonNull PhoneNumberUtil util, @NonNull String e164Number) {
-    try {
-      Phonenumber.PhoneNumber number = getPhoneNumber(util, e164Number);
-      return util.format(number, PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
-    } catch (NumberParseException e) {
-      return e164Number;
-    }
-  }
-
-  private static String getConfiguredE164Number(String number) {
-    return number;
-  }
-
-  private static Phonenumber.PhoneNumber getPhoneNumber(@NonNull PhoneNumberUtil util, @NonNull String e164Number)
-    throws NumberParseException
-  {
-    return util.parse(e164Number, null);
   }
 
   public static class Builder {

@@ -102,7 +102,7 @@ public final class EnterCodeFragment extends BaseRegistrationFragment {
       wrongNumber.setVisibility(View.INVISIBLE);
       keyboard.displayProgress();
 
-      RegistrationService registrationService = RegistrationService.getInstance(model.getNumber().getE164Number(), model.getRegistrationSecret());
+      RegistrationService registrationService = RegistrationService.getInstance(model.getNumber(), model.getRegistrationSecret());
 
       registrationService.verifyAccount(requireActivity(), model.getFcmToken(), code, null, null, null,
         new CodeVerificationRequest.VerifyCallback() {
@@ -257,7 +257,7 @@ public final class EnterCodeFragment extends BaseRegistrationFragment {
 
     NavController navController = Navigation.findNavController(callMeCountDown);
 
-    RegistrationService registrationService = RegistrationService.getInstance(model.getNumber().getE164Number(), model.getRegistrationSecret());
+    RegistrationService registrationService = RegistrationService.getInstance(model.getNumber(), model.getRegistrationSecret());
 
     registrationService.requestVerificationCode(requireActivity(), RegistrationCodeRequest.Mode.PHONE_CALL, captcha,
       new RegistrationCodeRequest.SmsVerificationCodeCallback() {
@@ -301,7 +301,7 @@ public final class EnterCodeFragment extends BaseRegistrationFragment {
   public void onResume() {
     super.onResume();
 
-    getModel().getLiveNumber().observe(this, (s) -> header.setText(requireContext().getString(R.string.RegistrationActivity_enter_the_code_we_sent_to_s, s.getFullFormattedNumber())));
+    getModel().getLiveNumber().observe(this, (s) -> header.setText(requireContext().getString(R.string.RegistrationActivity_enter_the_code_we_sent_to_s, getModel().getNumber())));
 
     callMeCountDown.startCountDown(RegistrationConstants.FIRST_CALL_AVAILABLE_AFTER);
   }

@@ -125,6 +125,22 @@ public final class VerificationCodeView extends FrameLayout {
     setInactive(containers);
   }
 
+  @MainThread
+  public String getText() {
+    String text = "";
+
+    if (codes.size() == 6) {
+      text += codes.get(0).getText();
+      text += codes.get(1).getText();
+      text += codes.get(2).getText();
+      text += codes.get(3).getText();
+      text += codes.get(4).getText();
+      text += codes.get(5).getText();
+    }
+
+    return text;
+  }
+
   private static void setInactive(List<View> views) {
     Stream.of(views).forEach(c -> c.setBackgroundResource(R.drawable.labeled_edit_text_background_inactive));
   }

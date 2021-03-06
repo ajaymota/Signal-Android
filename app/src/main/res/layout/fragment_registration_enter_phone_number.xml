@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
+    android:orientation="vertical"
     tools:context=".registration.fragments.EnterPhoneNumberFragment">
+
+<ScrollView
+    android:id="@+id/scroll_view"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -57,15 +63,28 @@
 <!--                app:labeledEditText_background="@color/white"-->
 <!--                app:labeledEditText_textLayout="@layout/country_code_text" />-->
 
-            <org.privately.chat.components.LabeledEditText
-                android:id="@+id/number"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="3"
-                app:labeledEditText_background="@color/white"
-                app:labeledEditText_label="@string/RegistrationActivity_phone_number_description"
-                app:labeledEditText_textLayout="@layout/phone_text" />
+<!--            <org.privately.chat.components.LabeledEditText-->
+<!--                android:id="@+id/number"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="3"-->
+<!--                app:labeledEditText_background="@color/white"-->
+<!--                app:labeledEditText_label="@string/RegistrationActivity_phone_number_description"-->
+<!--                app:labeledEditText_textLayout="@layout/phone_text" />-->
+
         </LinearLayout>
+
+        <org.privately.chat.components.registration.VerificationCodeView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/verify_subheader" />
 
         <TextView
             android:id="@+id/verify_header"
@@ -126,9 +145,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintTop_toBottomOf="@+id/number"
             app:layout_constraintVertical_bias="0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
+
+<org.privately.chat.components.registration.VerificationPinKeyboard
+android:id="@+id/keyboard"
+android:layout_width="match_parent"
+android:layout_height="wrap_content" />
+
+    </LinearLayout>

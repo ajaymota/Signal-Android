@@ -49,12 +49,7 @@ public final class CountryPickerFragment extends ListFragment implements LoaderM
 
   @Override
   public void onListItemClick(@NonNull ListView listView, @NonNull View view, int position, long id) {
-    Map<String, String> item = (Map<String, String>) getListAdapter().getItem(position);
-
-    int    countryCode = Integer.parseInt(item.get("country_code").replace("+", ""));
-    String countryName = item.get("country_name");
-
-    model.onCountrySelected(countryName, countryCode);
+//    Map<String, String> item = (Map<String, String>) getListAdapter().getItem(position);
 
     Navigation.findNavController(view).navigate(CountryPickerFragmentDirections.actionCountrySelected());
   }

@@ -157,7 +157,7 @@ public final class RegistrationLockFragment extends BaseRegistrationFragment {
     }
 
     RegistrationViewModel model                   = getModel();
-    RegistrationService   registrationService     = RegistrationService.getInstance(model.getNumber().getE164Number(), model.getRegistrationSecret());
+    RegistrationService   registrationService     = RegistrationService.getInstance(model.getNumber(), model.getRegistrationSecret());
     TokenResponse         tokenResponse           = model.getKeyBackupCurrentToken();
     String                basicStorageCredentials = model.getBasicStorageCredentials();
 

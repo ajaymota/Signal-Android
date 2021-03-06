@@ -20,7 +20,7 @@ public final class RegistrationViewModel extends ViewModel {
   private static final String TAG = Log.tag(RegistrationViewModel.class);
 
   private final String                                       secret;
-  private final MutableLiveData<NumberViewState>             number;
+  private final MutableLiveData<String>                      number;
   private final MutableLiveData<String>                      textCodeEntered;
   private final MutableLiveData<String>                      captchaToken;
   private final MutableLiveData<String>                      fcmToken;
@@ -34,7 +34,7 @@ public final class RegistrationViewModel extends ViewModel {
   public RegistrationViewModel(@NonNull SavedStateHandle savedStateHandle) {
     secret = loadValue(savedStateHandle, "REGISTRATION_SECRET", Util.getSecret(18));
 
-    number                        = savedStateHandle.getLiveData("NUMBER", NumberViewState.INITIAL);
+    number                        = savedStateHandle.getLiveData("NUMBER", "");
     textCodeEntered               = savedStateHandle.getLiveData("TEXT_CODE_ENTERED", "");
     captchaToken                  = savedStateHandle.getLiveData("CAPTCHA");
     fcmToken                      = savedStateHandle.getLiveData("FCM_TOKEN");
@@ -53,12 +53,12 @@ public final class RegistrationViewModel extends ViewModel {
     return savedStateHandle.get(key);
   }
 
-  public @NonNull NumberViewState getNumber() {
+  public @NonNull String getNumber() {
     //noinspection ConstantConditions Live data was given an initial value
     return number.getValue();
   }
 
-  public @NonNull LiveData<NumberViewState> getLiveNumber() {
+  public @NonNull LiveData<String> getLiveNumber() {
     return number;
   }
 
@@ -87,33 +87,14 @@ public final class RegistrationViewModel extends ViewModel {
     captchaToken.setValue(null);
   }
 
-  public void onCountrySelected(@Nullable String selectedCountryName, int countryCode) {
-    setViewState(getNumber().toBuilder()
-                            .selectedCountryDisplayName(selectedCountryName)
-                            .countryCode(countryCode).build());
-  }
-
-  public void setNationalNumber(String number) {
-    NumberViewState numberViewState = getNumber().toBuilder().nationalNumber(number).build();
-    setViewState(numberViewState);
-  }
-
-  private void setViewState(NumberViewState numberViewState) {
-    if (!numberViewState.equals(getNumber())) {
-      number.setValue(numberViewState);
-    }
-  }
-
   @MainThread
   public void onVerificationCodeEntered(String code) {
     textCodeEntered.setValue(code);
   }
 
-  public void onNumberDetected(int countryCode, String nationalNumber) {
-    setViewState(getNumber().toBuilder()
-                            .countryCode(countryCode)
-                            .nationalNumber(nationalNumber)
-                            .build());
+  @MainThread
+  public void onNumberEntered(String code) {
+    number.setValue(code);
   }
 
   public String getFcmToken() {
